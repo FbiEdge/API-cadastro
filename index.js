@@ -13,6 +13,11 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 const app = express();
 app.use(express.json()); // Para analisar JSON no corpo das requisições
 
+// Rota raiz
+app.get('/', (req, res) => {
+    res.status(200).send('API funcionando!'); // Retorna uma mensagem básica
+});
+
 // Endpoint de cadastro
 app.post('/register', async (req, res) => {
     const { email, password } = req.body;
